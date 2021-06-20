@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="style.css">
+    <title>Profile Page</title>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+        integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script>
+        $(document).ready(function () {
+            $("div.container").hide();
+            var time = 0
+
+            setTimeout(function timer() {
+                // $("div.container").css("display","block");
+                // $("div#loading-page").css("display","none");
+            }, 4000);
+            $("#home-tab").click(function () {
+                $("#home").show();
+                $("#profile").hide();
+                $(this).addClass("active").removeClass("inactive-link");
+                $("#profile-tab").removeClass("active").addClass("inactive-link");
+                $("#home-tab").removeClass("active").addClass("inactive-link");
+                $("div#images").css("display", "none");
+            })
+            $("#profile-tab").click(function () {
+                $("#home").hide();
+                $("#profile").show().css("opacity", "1");
+                $(this).addClass("active").removeClass("inactive-link");
+                $("#home-tab").removeClass("active").addClass("inactive-link");
+                $("#image-tab").removeClass("active").addClass("inactive-link");
+                $("div#images").css("display", "none");
+
+            })
+            $("#image-tab").click(function () {
+                $("#home").hide();
+                $("#profile").hide();
+                // $("#profile").show().css("opacity","1");
+                $(this).addClass("active").removeClass("inactive-link");
+                $("#home-tab").removeClass("active").addClass("inactive-link");
+                $("#profile-tab").removeClass("active").addClass("inactive-link");
+                $("div#images").css("display", "block");
+
+            })
+            $("div#images").css("display", "none");
+        })
+    </script>
+    <style>
+        svg {
+            display: inline-block;
+            width: 18px;
+            margin-right: 20px;
+        }
+
+        img#cooking,
+        img#dancing,
+        img#series,
+        img#new-things {
+            width: 25px;
+            margin-right: 10px;
+        }
+
+        img#facebook-icon {
+            margin-right: 20px;
+        }
+
+        /* #cover-image {
+            background-image: url(images/image\ \(10\).jpg);
+            background-repeat: no-repeat;
+            border-radius: 1.25rem;
+        } */
+        div#loading-page {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+        div.landing-container{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            width: 60vw;
+            height: 80vh;
+            border-radius: 1.25rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+        }
+        div#temp-image img {
+            width: 30vw;
+            max-width: 200px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        div#temp-text {
+            font-size: 2rem;
+            font-family: 'Satisfy', cursive;
+            
+        }
+
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 5px solid rgb(157, 3, 39);
+            border-right: 5px solid rgb(237, 230, 204);
+            border-bottom: 5px solid rgb(157, 3, 39);
+            width: 30px;
+            height: 30px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+        div#loader-design-container{
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        img.loader-design{
+            width: 100px;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+       .owl-images{
+           width: 172px;
+           height: 215px;
+           object-fit: cover;
+       }
+
+       @media only screen and (max-width:600px){
+        div.landing-container{
+            width: 80vw;
+            height: 70vh;
+        }
+        img.loader-design{
+            width: 60px;
+        }
+       }
+    </style>
+</head>
+
+<body>
+    <div id="loading-page">
+        <div class="landing-container">
+            <div id="temp-image"><img src="images/image (1).jpg" alt=""></div>
+            <div id="temp-text">Pragati Soni</div>
+            <div id="loader-design-container"><img src="design1.jpg" alt="" class="loader-design">KEEP SMILING<img src="design2.jpg" alt="" class="loader-design"></div>
+            <div class="loader"></div>
+        </div>
+    </div>
+    <div class="container emp-profile">
+        <form method="post">
+            <div class="row" id="cover-image">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="profile.png" alt="" />
+                        <!-- <div class="file btn btn-lg btn-primary">
+                            Change Photo
+                            <input type="file" name="file" />
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <h5>
+                            Pragati Soni
+                        </h5>
+                        <h6>
+                            BBA LLB (Hons)
+                        </h6>
+                        <p class="proile-rating">PROFILE RANKINGS : <span>10/10</span></p>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab"
+                                    aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link inactive-link" id="profile-tab" data-toggle="tab" role="tab"
+                                    aria-controls="profile" aria-selected="false">Timeline</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link inactive-link" id="image-tab" data-toggle="tab" role="tab"
+                                    aria-controls="image-tab" aria-selected="false">Gallery</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="col-md-2">
+                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                </div> -->
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-work">
+                        <p>Intrest</p>
+                        <a href="#">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.14 122.88"
+                                style="enable-background:new 0 0 122.14 122.88" xml:space="preserve">
+                                <g>
+                                    <path
+                                        d="M35.14,0H87c9.65,0,18.43,3.96,24.8,10.32c6.38,6.37,10.34,15.16,10.34,24.82v52.61c0,9.64-3.96,18.42-10.32,24.79 l-0.02,0.02c-6.38,6.37-15.16,10.32-24.79,10.32H35.14c-9.66,0-18.45-3.96-24.82-10.32l-0.24-0.27C3.86,105.95,0,97.27,0,87.74 V35.14c0-9.67,3.95-18.45,10.32-24.82S25.47,0,35.14,0L35.14,0z M91.51,31.02l0.07,0.11h21.6c-0.87-5.68-3.58-10.78-7.48-14.69 C100.9,11.64,94.28,8.66,87,8.66h-8.87L91.51,31.02L91.51,31.02z M81.52,31.13L68.07,8.66H38.57l13.61,22.47H81.52L81.52,31.13z M42.11,31.13L28.95,9.39c-4.81,1.16-9.12,3.65-12.51,7.05c-3.9,3.9-6.6,9.01-7.48,14.69H42.11L42.11,31.13z M113.48,39.79H8.66 v47.96c0,7.17,2.89,13.7,7.56,18.48l0.22,0.21c4.8,4.8,11.43,7.79,18.7,7.79H87c7.28,0,13.9-2.98,18.69-7.77l0.02-0.02 c4.79-4.79,7.77-11.41,7.77-18.69V39.79L113.48,39.79z M50.95,54.95l26.83,17.45c0.43,0.28,0.82,0.64,1.13,1.08 c1.22,1.77,0.77,4.2-1,5.42L51.19,94.67c-0.67,0.55-1.53,0.88-2.48,0.88c-2.16,0-3.91-1.75-3.91-3.91V58.15h0.02 c0-0.77,0.23-1.55,0.7-2.23C46.76,54.15,49.19,53.72,50.95,54.95L50.95,54.95L50.95,54.95z" />
+                                </g>
+                            </svg>
+                            Reels
+                        </a>
+                        <br />
+                        <a href="#"><img src="icon/cooking.png" alt="" id="cooking"> Cooking</a><br />
+                        <a href="#"><img src="icon/dancer.png" alt="" id="dancing"> Dancing</a><br />
+                        <a href="#"><img src="icon/series.png" alt="" id="series"> Watching Web Series</a>
+                        <br>
+                        <a href="#"><img src="icon/new.png" alt="" id="new-things"> ᒪOᐯE TᖇYIᑎG ᑎEᗯ TᕼIᑎGS̊</a>
+                        <p>SKILLS/HOBBIES</p>
+                        <a href=""></a><br />
+                        <a href=""></a><br />
+                        <a href=""></a><br />
+                        <a href=""></a><br />
+                        <a href=""></a><br />
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>User Id</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>pragati_0712</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Name</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Pragati Soni</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>abc@xyz.com</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Phone</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>123 456 7890</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Profession</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Lawyer</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Birthday</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>7 Dec</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Social Links</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><a href="https://www.facebook.com/profile.php?id=100008766666923"
+                                            target="_blank"><img src="icon/facebook.png" alt=""
+                                                id="facebook-icon"></a><a href="https://www.instagram.com/pragati_0712/"
+                                            target="_blank"><img src="icon/instagram.png" alt=""
+                                                id="instagram-icon"></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Experience</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Expert</p>
+                                </div>
+                            </div>
+                            <!-- <div class="row">
+                                <div class="col-md-6">
+                                    <label>Hourly Rate</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>10$/hr</p>
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Total Projects</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>English Level</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Expert</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Availability</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>6 months</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Your Bio</label><br />
+                                    <p>✿It Is ᗩᒪᗯᗩYs̊ Good To BE YoUrSelF✿</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="images">
+                            <div class="owl-carousel owl-theme">
+                                <div class="item"><img src="images/image (1).jpg" alt="" class="owl-images"></div>
+                                <div class="item"><img src="images/image (2).jpg" alt="" class="owl-images"></div>
+                                <div class="item"><img src="images/image (3).jpg" alt="" class="owl-images"></div>
+                                <div class="item"><img src="images/image (4).jpg" alt="" class="owl-images"></div>
+                                <div class="item"><img src="images/image (5).jpg" alt="" class="owl-images"></div>
+                                <div class="item"><img src="images/image (6).jpg" alt="" class="owl-images"></div>
+                                <div class="item"><img src="images/image (7).jpg" alt="" class="owl-images"></div>
+                                <div class="item"><img src="images/image (8).jpg" alt="" class="owl-images"></div>
+                                <div class="item"><img src="images/image (9).jpg" alt="" class="owl-images"></div>
+                                <div class="item"><img src="images/image (10).jpg" alt="" class="owl-images"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: false,
+                dots: false,
+                autoplay: true,
+                autoplayTimeout: 2500,
+                stagePadding: 80,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            })
+        })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
